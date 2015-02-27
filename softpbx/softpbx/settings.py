@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import dbconfig
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -28,16 +29,16 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
-INSTALLED_APPS = (
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'cdr_tables',
-)
+INSTALLED_APPS = dbconfig.INSTALLED_APPS
+# INSTALLED_APPS = (
+#     'django.contrib.admin',
+#     'django.contrib.auth',
+#     'django.contrib.contenttypes',
+#     'django.contrib.sessions',
+#     'django.contrib.messages',
+#     'django.contrib.staticfiles',
+#     'cdr_tables',
+# )
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -57,16 +58,17 @@ WSGI_APPLICATION = 'softpbx.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'softpbx',
-        'USER': 'root',
-        'PASSWORD': 'ferrari',
-        'HOST': '',
-        'PORT': '',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'softpbx',
+#         'USER': 'root',
+#         'PASSWORD': 'ferrari',
+#         'HOST': '',
+#         'PORT': '',
+#     }
+# }
+DATABASES = dbconfig.DATABASES
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -86,3 +88,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_PATH = os.path.join(BASE_DIR, 'static_root')
+STATICFILES_DIRS = (
+    STATIC_PATH,
+)
+
+# Diretorio de templates
+
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'templates'),
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.core.context_processors.request",
+    "django.contrib.auth.context_processors.auth",
+)
+
+GRAPPELLI_ADMIN_TITLE = dbconfig.GRAPPELLI_ADMIN_TITLE
