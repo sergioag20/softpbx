@@ -1,6 +1,11 @@
 # softpbx
-Migração da tecnologia do IPPBXFAL para Python Django
+Migration of technology IPPBXFAL to Python/Django
 
-Dependências:
-Python 2.7+ 
-Django 1.7+
+Dependencies:
+
+* Python 2.7+
+* Django 1.7+
+* libmysqlclient-dev (via apt or similar)
+* python-dev (via apt or similar)
+
+After creation of your virtualenv run pip install -r requirements.txt
