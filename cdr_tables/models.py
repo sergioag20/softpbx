@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import unicode_literals
-
 from django.db import models
+import choices
 
 
 class Cdr(models.Model):
@@ -121,10 +120,10 @@ class QueueTable(models.Model):
 
 
 class SipDevices(models.Model):
-    id = models.IntegerField(primary_key=True)  # AutoField?
-    name = models.CharField(unique=True, max_length=10)
+    # id = models.IntegerField(primary_key=True)  # AutoField?
+    name = models.CharField(unique=True, max_length=10, help_text=u'Only numbers')
     ipaddr = models.CharField(max_length=15, blank=True)
-    port = models.IntegerField(blank=True, null=True)
+    port = models.IntegerField(blank=True, null=True, default='5060')
     regseconds = models.IntegerField(blank=True, null=True)
     defaultuser = models.CharField(max_length=50, blank=True)
     fullcontact = models.CharField(max_length=35, blank=True)
@@ -145,9 +144,9 @@ class SipDevices(models.Model):
     nat = models.CharField(max_length=18, blank=True)
     callgroup = models.CharField(max_length=40, blank=True)
     pickupgroup = models.CharField(max_length=40, blank=True)
-    language = models.CharField(max_length=40, blank=True)
+    language = models.CharField(max_length=40, blank=True, choices=choices.LANGUAGES)
     disallow = models.CharField(max_length=40, blank=True)
-    allow = models.CharField(max_length=40, blank=True)
+    allow = models.CharField(max_length=40, blank=True, null=True)
     insecure = models.CharField(max_length=40, blank=True)
     trustrpid = models.CharField(max_length=3, blank=True)
     progressinband = models.CharField(max_length=5, blank=True)
@@ -216,6 +215,10 @@ class SipDevices(models.Model):
 
     class Meta:
         db_table = 'sip_devices'
+        verbose_name='Sip devices'
+        verbose_name_plural='Sip devices'
+
+
 
 
 class Voicemail(models.Model):

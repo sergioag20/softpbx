@@ -9,7 +9,14 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'softpbx.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-    (r'^grappelli/', include('grappelli.urls')), # grappelli URLS
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', 'cdr_tables.views.index'),
+    url(r'^$', 'softpbx.views.index'),
+    url(r'^user_login', 'softpbx.views.user_login'),
+    url(r'^user_logout', 'softpbx.views.user_logout'),
+    # url(r'^add_user', 'cdr.views.add_user'),
 ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+
+urlpatterns += patterns('spw_extension.views',
+    url(r'^add-extension', 'add_extension'),
+)

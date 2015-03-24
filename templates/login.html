@@ -1,0 +1,36 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block extrahead %}
+    <link href="{% static "base/css/signin.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <form class="form-signin" action="user_login" method="post">{% csrf_token %}
+            <h2 class="form-signin-heading">Efetuar login</h2>
+            <label for="username" class="sr-only">Usuário</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="Usuário" required autofocus>
+            <label for="password" class="sr-only">Senha</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Senha" required>
+            <div class="checkbox">
+                <label>
+                <input type="checkbox" value="remember-me"> Lembrar
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+            <br />
+             {% if errors %}
+                {% for e in errors %}
+                    <div class="alert alert-danger" role="alert">
+                        <strong>{{ e }}</strong>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <input type="hidden" name="next" value="/" />
+        </form>
+    </div> <!-- /container -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{% static "base/js/ie10-viewport-bug-workaround.js" %}"></script>
+
+{% endblock %}
