@@ -20,6 +20,7 @@ class ExtensionForm(ModelForm):
             'spw_pickup_group',
             'spw_active',
         )
+
         # widgets = {
         #     'spw_display_name': 'form-controls',
         # }

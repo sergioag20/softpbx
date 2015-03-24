@@ -51,7 +51,7 @@
       {% if request.user.is_authenticated %}
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="add-extensions">Ramais</a></li>
+            <li><a href="/add-extensions">Ramais</a></li>
             <li><a href="#">Item 2</a></li>
             <li><a href="#">Item 3</a></li>
             <li><a href="#">Item 4</a></li>
@@ -101,6 +101,19 @@
                         </li>
                         <li><a href="#">Desvio de ramais</a>
                         </li>                              
+                      </ul>
+                    </li> 
+
+                    <li class="nav-header"> 
+                      <a href="#" data-toggle="collapse" data-target="#menuRamais">
+                        <i class="glyphicon glyphicon-user"></i> Ramais <i class="glyphicon-user glyphicon glyphicon-chevron-right"></i>
+                      </a>
+
+                      <ul class="list-unstyled collapse" id="menuRamais">
+                        <li><a href="/list-extension">Listar ramais </a>
+                        </li>
+                        <li><a href="/add-extension">Cadastrar ramais </a>
+                        </li>
                       </ul>
                     </li>
 

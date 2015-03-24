@@ -19,4 +19,7 @@ urlpatterns = patterns('',
 
 urlpatterns += patterns('spw_extension.views',
     url(r'^add-extension', 'add_extension'),
+    url(r'^list-extension', 'list_extension', name='list-extension'),
+    url(r'^edit-extension/(?P<extension_id>\w+)/$', 'edit_extension'),
+    url(r'^change-status-extension/(?P<extension_id>\w+)/$', 'change_status_extension'),
 )

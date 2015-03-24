@@ -1,6 +1,7 @@
 {% extends "base/base.html" %}
 
 {% block content %}
+
     <form class="form-inline" method="post">{% csrf_token %}
         <fieldset class="form-group">
             <legend>{{ title }}</legend>
@@ -27,10 +28,18 @@
                     </div>
                 {% endif %}
             {% endfor %}
+            <div class="control-group">
+                <div class="controls">
+                    {% if message %}
+                        <span class="alert alert-info"><strong>{{message}}</strong></span>
+                    {% endif %}
+                </div>
+            </div>
         </fieldset>
         <br />
         <div class="form-actions">
             <button type="submit" class="btn btn-primary" >Submit</button>
         </div>
     </form>
+    
 {% endblock %}
