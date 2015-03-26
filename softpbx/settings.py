@@ -86,15 +86,16 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
-
 STATIC_URL = '/static/'
-STATIC_PATH = os.path.join(BASE_DIR, 'static_root')
+
+# # STATIC_PATH = os.path.join(BASE_DIR, 'static_root')
 STATICFILES_DIRS = (
-    STATIC_PATH,
+    os.path.join(BASE_DIR, "static"),
 )
 
-# Diretorio de templates
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 
+# Diretorio de templates
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
 )
@@ -104,4 +105,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.auth.context_processors.auth",
 )
 
-GRAPPELLI_ADMIN_TITLE = dbconfig.GRAPPELLI_ADMIN_TITLE
+TEMPLATES_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+)

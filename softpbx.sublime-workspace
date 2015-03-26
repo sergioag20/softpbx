@@ -1,0 +1,781 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"conte",
+				"context_instance"
+			],
+			[
+				"Exten",
+				"ExtensionForm	class"
+			],
+			[
+				"Ex",
+				"ExtensionForm	class"
+			],
+			[
+				"sp",
+				"spw_extension	module"
+			],
+			[
+				"url",
+				"urlpatterns	statement"
+			],
+			[
+				"Group",
+				"GroupExtension	class"
+			],
+			[
+				"spw",
+				"spw_passwd	statement"
+			],
+			[
+				"Usu",
+				"UsuarioForm	class"
+			],
+			[
+				"ModelForm",
+				"ModelForm	import"
+			],
+			[
+				"cs",
+				"csrf_exempt	import"
+			],
+			[
+				"ch",
+				"change	.change()"
+			],
+			[
+				"cbo",
+				"cboMotivo"
+			],
+			[
+				"cbi",
+				"cboStatusAtendimento"
+			],
+			[
+				"do",
+				"document"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"ready",
+				"ready	$(document).ready"
+			],
+			[
+				"sc",
+				"script	Tag"
+			],
+			[
+				"txtNumeroGui",
+				"txtNumeroGuiaPrincipal"
+			],
+			[
+				"get",
+				"getjson	$.getjson()"
+			],
+			[
+				"_",
+				"_current"
+			],
+			[
+				"Enti",
+				"EntidadeManager"
+			],
+			[
+				"ur",
+				"url"
+			],
+			[
+				"data",
+				"data_guia2"
+			],
+			[
+				"time",
+				"timestampdate"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "templates/base/base.html",
+			"settings":
+			{
+				"buffer_size": 7332,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "softpbx/urls.py",
+			"settings":
+			{
+				"buffer_size": 731,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/fred/Desenvolvimento/Projetos/Python/SadAdmin/templates/mobile/fecha-os.html",
+			"settings":
+			{
+				"buffer_size": 7315,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/spw_extension/add_extension.html",
+			"settings":
+			{
+				"buffer_size": 1508,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "softpbx/settings.py",
+			"settings":
+			{
+				"buffer_size": 2771,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "def get_query(query_string, search_fields):\n    ''' Returns a query, that is a combination of Q objects. That combination\n        aims to search keywords within a model by testing the given search fields.\n    '''\n    query = None # Query to search for every search term        \n    terms = query_string\n    for term in terms:\n        or_query = None # Query to search for a given term in each field\n        for field_name in search_fields:\n            q = Q(**{\"%s__icontains\" % field_name: term})\n            if or_query is None:\n                or_query = q\n            else:\n                or_query = or_query | q\n        if query is None:\n            query = or_query\n        else:\n            query = query & or_query\n    print query\n    return query",
+			"file": "/home/fred/Desenvolvimento/Projetos/Python/getQuery.py",
+			"file_size": 778,
+			"file_write_time": 130716243886127869,
+			"settings":
+			{
+				"buffer_size": 756,
+				"line_ending": "Unix",
+				"name": "def get_query(query_string, search_fields):"
+			}
+		},
+		{
+			"file": "spw_extension/views.py",
+			"settings":
+			{
+				"buffer_size": 1475,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/fred/Desenvolvimento/Projetos/Python/online_admin/WebApp_ASP/continuidadeSessoes.asp",
+			"settings":
+			{
+				"buffer_size": 16370,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "spw_extension/forms.py",
+			"settings":
+			{
+				"buffer_size": 1213,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 117.0,
+		"selected_items":
+		[
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Anaconda",
+				"Anaconda: Autoformat PEP8 Errors"
+			],
+			[
+				"",
+				"Anaconda: Disable linting on this file"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"djan",
+				"Set Syntax: Python (Django)"
+			]
+		],
+		"width": 530.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/softpbx",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/static_root",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/templates",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/templates/base",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/templates/spw_extension"
+	],
+	"file_history":
+	[
+		"/home/fred/Desenvolvimento/Projetos/Python/online_admin/transacao/rotinas/PTUTISS.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/softpbx/settings.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/templates/login.html",
+		"/home/fred/Desenvolvimento/Projetos/Python/online_admin/WebApp_ASP/guiaSolicitacao.asp",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/softpbx/urls.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/spw_extension/views.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/spw_extension/models.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/spw_extension/forms.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/static_root/bootstrap/css/bootstrap-responsive.css",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/dbconfig.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/templates/base/base.html",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/templates/spw_extension/list_extensions.html",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/softpbx/views.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/templates/spw_extension/add_extension.html",
+		"/home/fred/Desenvolvimento/bootstrap-themes/bootstrap-admin-theme/index.html",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/spw_extension/choices.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/spw_ramais/choices.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/spw_extension/admin.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/templates/cdr/list_users.html",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/templates/cdr/add_user.html",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/cdr/forms.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/spw_ramais/models.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/spw_ramais/admin.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/README.md",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/cdr_dell/forms.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/cdr_dell/models.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx_DELL/cdr/models.py",
+		"/home/fred/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/cdr/views.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/pbxip/admin.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/cdr/models.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/dell.model",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/call_center/models.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/cdr/admin.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/cdr_tables/admin.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/call_center/admin.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/cdr_tables/choices.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/pbxip/models.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/templates/index.html",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/cdr_tables/views.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/cdr_tables/models.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/tmp/teste/models.modelo",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/static_root/css/custom.css",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/static_root/css/navbar-fixed-top.css",
+		"/home/fred/.config/sublime-text-3/Packages/User/HTML.sublime-settings",
+		"/home/fred/Desenvolvimento/Projetos/Python/SadAdmin/Entidades/models.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/SadAdmin/media/css/custom.css",
+		"/home/fred/Desenvolvimento/Projetos/Python/SadAdmin/Atendimentos/choices.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/SadAdmin/Atendimentos/models.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/SadAdmin/media/admin/jquery/jquery-1.4.2.min.js",
+		"/home/fred/Desenvolvimento/Projetos/Python/SadAdmin/templates/index.html",
+		"/home/fred/Desenvolvimento/Projetos/Python/online_admin/templates/FormRequisicao.html",
+		"/home/fred/Desenvolvimento/Projetos/Python/online_admin/templates/base/base.html",
+		"/home/fred/Desenvolvimento/Projetos/Python/SadAdmin/templates/mobile/base/base.html",
+		"/home/fred/Desenvolvimento/Projetos/Python/SadAdmin/media/admin/css/grappelli-skin-basic.css",
+		"/home/fred/Desenvolvimento/Projetos/Python/SadAdmin/templates/default.html",
+		"/home/fred/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/fred/Desenvolvimento/Projetos/Python/online_admin/templates/relatorios.html",
+		"/home/fred/.config/sublime-text-3/Packages/Anaconda/Anaconda.sublime-settings",
+		"/home/fred/Desenvolvimento/Projetos/Python/online_admin/dbconfig.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/online_admin/OnlineAdmin.sublime-project",
+		"/home/fred/Desenvolvimento/Projetos/Python/online_admin/settings.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/online_admin/utils/tsimu.py",
+		"/home/fred/.config/sublime-text-3/Packages/Virtualenv/README.md",
+		"/home/fred/.config/sublime-text-3/Packages/User/Virtualenv.sublime-settings",
+		"/home/fred/Desenvolvimento/Projetos/Python/online_admin/transacao/rotinas/utilitarios.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/online_admin/transacao/views.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/softpbx/softpbx/softpbx/dbconfig.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/SadAdmin/dbconfig.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/online_admin/templates/login.html",
+		"/home/fred/Desenvolvimento/Projetos/Python/online_admin/urls.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/online_admin/views.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/sistemaTeccomOnline/views.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/SadAdmin/templates/mobile/chamados-abertos.html",
+		"/home/fred/Desenvolvimento/Projetos/Python/online_admin/templates/login (cópia).html",
+		"/opt/sublime_text/changelog.txt",
+		"/home/fred/Desenvolvimento/Projetos/Python/OnlineAdminDjango/settings.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/OnlineAdminDjango/urls.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/SadAdmin/OrdemServico/models.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/SadAdmin/OrdemServico/ordem_servico_gw.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/SadAdmin/OrdemServico/choices.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/SadAdmin/utils/views.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/SadAdmin/OrdemServico/views.py",
+		"/home/fred/Desenvolvimento/tmp/AndroidJson/AndroidManifest.xml",
+		"/home/fred/Desenvolvimento/tmp/AndroidJSONParse/AndroidManifest.xml",
+		"/home/fred/Desenvolvimento/tmp/TesteHttp/AndroidManifest.xml",
+		"/home/fred/Desenvolvimento/Projetos/Python/SadAdmin/utils.json",
+		"/home/fred/tmp/testehtml5/testehtml5/templates/base/base.html",
+		"/home/fred/tmp/testehtml5/testehtml5/settings.py",
+		"/home/fred/tmp/testehtml5/testehtml5/urls.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/SadAdmin/views.py",
+		"/media/fred/Novo volume/Filmes/Dallas Buyers Club 2013 720p BRRip x264 aac vice/Dallas Buyers Club 2013 720p BRRip x264 aac vice.sub",
+		"/media/fred/Novo volume/Filmes/American.Hustle.2013.720p.BluRay.x264-SPARKS[rarbg]/Subs/american.hustle.2013.720p.bluray.x264-sparks.subs.rar-missing",
+		"/home/fred/tmp/SadAdmin/urls.py",
+		"/home/fred/tmp/SadAdmin/views.py",
+		"/home/fred/tmp/testehtml5/testehtml5/views.py",
+		"/media/fred/MULTIBOOT/Registro.txt",
+		"/media/fred/9D3A-3DFB/analyzer_output.txt",
+		"/home/fred/Área de Trabalho/2013-12-19_09-24-40_cadastros_prestador_export.csv",
+		"/home/fred/Desenvolvimento/Projetos/Python/SadAdmin/Materiais/models.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/SadAdmin/urls.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/SadAdmin/settings.py",
+		"/home/fred/Área de Trabalho/Retorno.xml",
+		"/home/fred/Desenvolvimento/tmp/AndroidListView/src/com/androidhive/androidlistview/AndroidListViewActivity.java",
+		"/home/fred/Desenvolvimento/tmp/AndroidListView/res/layout/list_item.xml",
+		"/home/fred/Desenvolvimento/tmp/AndroidListView/res/layout/main.xml",
+		"/home/fred/Desenvolvimento/tmp/AndroidListView/res/layout/single_list_item_view.xml",
+		"/home/fred/Desenvolvimento/tmp/AndroidListView/src/com/androidhive/androidlistview/SingleListItem.java",
+		"/home/fred/Desenvolvimento/Projetos/Python/androidTest/androidTest/wsgi.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/androidTest/androidTest/settings.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/androidTest/androidTest/urls.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/androidTest/androidTest/manage.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/androidTest/androidTest/simpleTest/views.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/SadAdmin/Materiais/views.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/androidTest/androidTest/__init__.py",
+		"/home/fred/Desenvolvimento/Projetos/Python/atualizador_cbhpm.py",
+		"/home/fred/Área de Trabalho/corrige.py"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"form-controls",
+			"parametro",
+			")\n",
+			"col-sm-9\"",
+			"Matriz",
+			"clndestino",
+			"TipoTronco",
+			"id",
+			"managed = False",
+			"Usuario",
+			"usuario",
+			"    id = models.IntegerField()",
+			"managed = False",
+			"language",
+			".",
+			"pep",
+			"settings.local",
+			"montaRetorno",
+			"fisioterapia",
+			"montaSolicitacaoAutorizacao",
+			"number",
+			"radio",
+			"\")\n",
+			"    <",
+			"Radio",
+			"touch",
+			"UUIDField",
+			"androidtest"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"managed = True",
+			"#    id = models.IntegerField()",
+			"managed = True"
+		],
+		"reverse": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "templates/base/base.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7332,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								495,
+								495
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "softpbx/urls.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 731,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								636,
+								636
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/fred/Desenvolvimento/Projetos/Python/SadAdmin/templates/mobile/fecha-os.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7315,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1681,
+								1681
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 459.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "templates/spw_extension/add_extension.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1508,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								669,
+								669
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "softpbx/settings.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2771,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2365,
+								2365
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1377.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/home/fred/Desenvolvimento/Projetos/Python/getQuery.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 756,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								643,
+								643
+							]
+						],
+						"settings":
+						{
+							"auto_name": "def get_query(query_string, search_fields):",
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "spw_extension/views.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1475,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								972,
+								972
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 81.0,
+						"translation.y": -0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/home/fred/Desenvolvimento/Projetos/Python/online_admin/WebApp_ASP/continuidadeSessoes.asp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 16370,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3828,
+								3828
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ASP/HTML-ASP.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1207.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "spw_extension/forms.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1213,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								334,
+								334
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "softpbx.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 247.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

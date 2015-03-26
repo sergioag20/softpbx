@@ -1,0 +1,1185 @@
+# This is an auto-generated Django model module.
+# You'll have to do the following manually to clean this up:
+#   * Rearrange models' order
+#   * Make sure each model has one field with primary_key=True
+#   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
+# Feel free to rename the models, but don't rename db_table values or field names.
+#
+# Also note: You'll have to insert the output of 'django-admin.py sqlcustom [app_label]'
+# into your database.
+from __future__ import unicode_literals
+
+from django.db import models
+
+
+class Alerta(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    tipo = models.IntegerField()
+    numero = models.IntegerField()
+    dthora = models.DateTimeField()
+    param = models.CharField(max_length=32, blank=True)
+
+    class Meta:
+        managed = False
+        db_table = 'alerta'
+
+
+class Arquivos(models.Model):
+    id = models.IntegerField()
+    nome = models.CharField(unique=True, max_length=32, blank=True)
+    caminho = models.CharField(max_length=64, blank=True)
+    flags = models.IntegerField(blank=True, null=True)
+    dados = models.BinaryField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'arquivos'
+
+
+class Aviso(models.Model):
+    id = models.IntegerField()
+    acao = models.CharField(max_length=32)
+
+    class Meta:
+        managed = False
+        db_table = 'aviso'
+
+
+class Backup(models.Model):
+    id = models.IntegerField()
+    data = models.DateTimeField()
+    arquivo = models.CharField(max_length=64)
+
+    class Meta:
+        managed = False
+        db_table = 'backup'
+
+
+class Bancoramais(models.Model):
+    id = models.IntegerField()
+    nome = models.CharField(max_length=80, blank=True)
+    marcamodelo = models.CharField(max_length=32, blank=True)
+    canais = models.IntegerField()
+    tipo = models.IntegerField()
+    ip = models.CharField(max_length=16, blank=True)
+    nomeserv = models.CharField(max_length=32, blank=True)
+    numplaca = models.IntegerField(blank=True, null=True)
+    pa = models.CharField(max_length=256, blank=True)
+    descricao = models.CharField(max_length=128, blank=True)
+
+    class Meta:
+        managed = False
+        db_table = 'bancoramais'
+
+
+class Blacklist(models.Model):
+    id = models.IntegerField()
+    numero = models.CharField(max_length=10, blank=True)
+
+    class Meta:
+        managed = False
+        db_table = 'blacklist'
+
+
+class Cadastrodestinos(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    tipo = models.IntegerField()
+    numero = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'cadastrodestinos'
+
+
+class Categoriachamada(models.Model):
+    id = models.IntegerField()
+    datahora = models.DateTimeField()
+    numero = models.CharField(unique=True, max_length=10)
+    tipo = models.CharField(max_length=1)
+    nome = models.CharField(max_length=64)
+    justific = models.CharField(max_length=64)
+    flag = models.CharField(max_length=1)
+    idusuario = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'categoriachamada'
+
+
+class CcHistorico(models.Model):
+    id = models.IntegerField()
+    tipoevento = models.IntegerField()
+    datahora = models.DateTimeField()
+    data = models.DateField(blank=True, null=True)
+    hora = models.TimeField(blank=True, null=True)
+    campo1 = models.CharField(max_length=64, blank=True)
+    campo2 = models.CharField(max_length=64, blank=True)
+    campo3 = models.CharField(max_length=64, blank=True)
+    campo4 = models.CharField(max_length=64, blank=True)
+    campo5 = models.CharField(max_length=64, blank=True)
+
+    class Meta:
+        managed = False
+        db_table = 'cc_historico'
+
+
+class CcRelatendgrupo(models.Model):
+    id = models.IntegerField()
+    idrel = models.CharField(max_length=32, blank=True)
+    nome = models.CharField(max_length=32, blank=True)
+    rec = models.CharField(max_length=32, blank=True)
+    atend = models.CharField(max_length=32, blank=True)
+    aband = models.CharField(max_length=32, blank=True)
+    tmatend = models.CharField(max_length=32, blank=True)
+    tmdisp = models.CharField(max_length=32, blank=True)
+    tmchaemesperafila = models.CharField(max_length=32, blank=True)
+    tmaband = models.CharField(max_length=32, blank=True)
+    tmchamando = models.CharField(max_length=32, blank=True)
+    tmchamcolespera = models.CharField(max_length=32, blank=True)
+    tmpausa100 = models.CharField(max_length=32, blank=True)
+    tmpausa = models.CharField(max_length=32, blank=True)
+    tmlaboral = models.CharField(max_length=32, blank=True)
+    tmclt = models.CharField(max_length=32, blank=True)
+    tmtrabalho = models.CharField(max_length=32, blank=True)
+    tmlanche = models.CharField(max_length=32, blank=True)
+    tmtreinamento = models.CharField(max_length=32, blank=True)
+    tmindisp = models.CharField(max_length=32, blank=True)
+    datainicial = models.CharField(max_length=32, blank=True)
+    datafinal = models.CharField(max_length=32, blank=True)
+    periodoinicial = models.CharField(max_length=32, blank=True)
+    periodofinal = models.CharField(max_length=32, blank=True)
+    data = models.DateField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'cc_relatendgrupo'
+
+
+class CcRelresumidoagente(models.Model):
+    id = models.IntegerField()
+    idrel = models.CharField(max_length=32, blank=True)
+    nome = models.CharField(max_length=32, blank=True)
+    entrante = models.CharField(max_length=32, blank=True)
+    tempototal = models.CharField(max_length=32, blank=True)
+    qtdadeentrantedireto = models.CharField(max_length=32, blank=True)
+    entrantedireto = models.CharField(max_length=32, blank=True)
+    sainte = models.CharField(max_length=32, blank=True)
+    chamando = models.CharField(max_length=32, blank=True)
+    chamadaespera = models.CharField(max_length=32, blank=True)
+    disp = models.CharField(max_length=32, blank=True)
+    indisp = models.CharField(max_length=32, blank=True)
+    pausa = models.CharField(max_length=32, blank=True)
+    totalpausa = models.CharField(max_length=32, blank=True)
+    laboral = models.CharField(max_length=32, blank=True)
+    clt = models.CharField(max_length=32, blank=True)
+    trabalho = models.CharField(max_length=32, blank=True)
+    lanche = models.CharField(max_length=32, blank=True)
+    treinamento = models.CharField(max_length=32, blank=True)
+    totalentsai = models.CharField(max_length=32, blank=True)
+    tempomedio = models.CharField(max_length=32, blank=True)
+    datainicial = models.CharField(max_length=32, blank=True)
+    datafinal = models.CharField(max_length=32, blank=True)
+    periodoinicial = models.CharField(max_length=32, blank=True)
+    periodofinal = models.CharField(max_length=32, blank=True)
+    data = models.DateField(blank=True, null=True)
+    desl = models.CharField(max_length=32, blank=True)
+
+    class Meta:
+        managed = False
+        db_table = 'cc_relresumidoagente'
+
+
+class CcRelresumidoagentetemporal(models.Model):
+    id = models.IntegerField()
+    idrel = models.CharField(max_length=32, blank=True)
+    idordem = models.CharField(max_length=32, blank=True)
+    nome = models.CharField(max_length=32, blank=True)
+    entrante = models.CharField(max_length=32, blank=True)
+    tempototal = models.CharField(max_length=32, blank=True)
+    qtdadeentrantedireto = models.CharField(max_length=32, blank=True)
+    entrantedireto = models.CharField(max_length=32, blank=True)
+    sainte = models.CharField(max_length=32, blank=True)
+    chamando = models.CharField(max_length=32, blank=True)
+    chamadaespera = models.CharField(max_length=32, blank=True)
+    disp = models.CharField(max_length=32, blank=True)
+    indisp = models.CharField(max_length=32, blank=True)
+    pausa = models.CharField(max_length=32, blank=True)
+    totalpausa = models.CharField(max_length=32, blank=True)
+    laboral = models.CharField(max_length=32, blank=True)
+    clt = models.CharField(max_length=32, blank=True)
+    trabalho = models.CharField(max_length=32, blank=True)
+    lanche = models.CharField(max_length=32, blank=True)
+    treinamento = models.CharField(max_length=32, blank=True)
+    totalentsai = models.CharField(max_length=32, blank=True)
+    tempomedio = models.CharField(max_length=32, blank=True)
+    datainicial = models.CharField(max_length=32, blank=True)
+    datafinal = models.CharField(max_length=32, blank=True)
+    periodoinicial = models.CharField(max_length=32, blank=True)
+    periodofinal = models.CharField(max_length=32, blank=True)
+    periodo = models.CharField(max_length=32, blank=True)
+    data = models.DateField(blank=True, null=True)
+    horainiperiodo = models.CharField(max_length=32, blank=True)
+    desl = models.CharField(max_length=32, blank=True)
+
+    class Meta:
+        managed = False
+        db_table = 'cc_relresumidoagentetemporal'
+
+
+class CcReltemporal(models.Model):
+    id = models.IntegerField()
+    idrel = models.CharField(max_length=32, blank=True)
+    idordem = models.IntegerField(blank=True, null=True)
+    nome = models.CharField(max_length=32, blank=True)
+    atend = models.CharField(max_length=32, blank=True)
+    sainte = models.CharField(max_length=32, blank=True)
+    tmatend = models.CharField(max_length=32, blank=True)
+    tmaband = models.CharField(max_length=32, blank=True)
+    aband = models.CharField(max_length=32, blank=True)
+    datai = models.CharField(max_length=32, blank=True)
+    dataf = models.CharField(max_length=32, blank=True)
+    horai = models.CharField(max_length=32, blank=True)
+    horaf = models.CharField(max_length=32, blank=True)
+    horainiperiodo = models.CharField(max_length=32, blank=True)
+    total = models.CharField(max_length=32, blank=True)
+    periodo = models.CharField(max_length=32, blank=True)
+    data = models.DateField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'cc_reltemporal'
+
+
+class CcTabulacao(models.Model):
+    id = models.IntegerField()
+    data = models.DateField(blank=True, null=True)
+    uniqueid = models.CharField(max_length=32)
+    idtipo = models.IntegerField()
+    idfila = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'cc_tabulacao'
+
+
+class CcTipoevento(models.Model):
+    id = models.IntegerField()
+    nome = models.CharField(max_length=32, blank=True)
+    campo1 = models.CharField(max_length=32, blank=True)
+    campo2 = models.CharField(max_length=32, blank=True)
+    campo3 = models.CharField(max_length=32, blank=True)
+    campo4 = models.CharField(max_length=32, blank=True)
+    campo5 = models.CharField(max_length=32, blank=True)
+
+    class Meta:
+        managed = False
+        db_table = 'cc_tipoevento'
+
+
+class CcTipotabulacao(models.Model):
+    id = models.IntegerField()
+    idfila = models.IntegerField()
+    descricao = models.CharField(max_length=80)
+    flag = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'cc_tipotabulacao'
+
+
+class Cdr(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    calldate = models.DateTimeField()
+    clid = models.CharField(max_length=80)
+    src = models.CharField(max_length=80)
+    dst = models.CharField(max_length=80)
+    dcontext = models.CharField(max_length=80)
+    channel = models.CharField(max_length=80)
+    dstchannel = models.CharField(max_length=80)
+    lastapp = models.CharField(max_length=80)
+    lastdata = models.CharField(max_length=80)
+    duration = models.BigIntegerField()
+    billsec = models.BigIntegerField()
+    disposition = models.CharField(max_length=45)
+    amaflags = models.BigIntegerField()
+    accountcode = models.CharField(max_length=20)
+    uniqueid = models.CharField(max_length=32)
+    userfield = models.CharField(max_length=255)
+    estrela = models.CharField(max_length=8, blank=True)
+    rota = models.CharField(max_length=32, blank=True)
+    categoria = models.CharField(max_length=32, blank=True)
+    valor = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
+    tarifa = models.CharField(max_length=8, blank=True)
+    volume = models.CharField(max_length=8, blank=True)
+    numdisc = models.CharField(max_length=80, blank=True)
+    direcao = models.CharField(max_length=1, blank=True)
+    localidade = models.CharField(max_length=64, blank=True)
+    callback = models.CharField(max_length=32, blank=True)
+    fila = models.CharField(max_length=8, blank=True)
+    gravacao = models.CharField(max_length=1, blank=True)
+
+    class Meta:
+        managed = False
+        db_table = 'cdr'
+
+
+class Conferencia(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    dono = models.IntegerField()
+    nome = models.CharField(max_length=64)
+    contexto = models.CharField(max_length=64)
+    sala = models.IntegerField()
+    pin = models.IntegerField()
+    dataini = models.DateTimeField()
+    datafim = models.DateTimeField()
+    numeros = models.CharField(max_length=256)
+
+    class Meta:
+        managed = False
+        db_table = 'conferencia'
+
+
+class Custo(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    nome = models.CharField(max_length=128)
+    sigla = models.CharField(max_length=16)
+    pai = models.CharField(max_length=16)
+    codigo = models.IntegerField(blank=True, null=True)
+    classificacao = models.CharField(max_length=16, blank=True)
+    idchefe = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'custo'
+
+
+class Dvdsgravacoes(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    totgravacoes = models.IntegerField(blank=True, null=True)
+    dataini = models.DateTimeField()
+    datafim = models.DateTimeField()
+
+    class Meta:
+        managed = False
+        db_table = 'dvdsgravacoes'
+
+
+class Execacao(models.Model):
+    id = models.IntegerField()
+    datahora = models.DateTimeField()
+    idusuario = models.IntegerField()
+    login = models.CharField(max_length=32, blank=True)
+    ip = models.CharField(max_length=16, blank=True)
+    nomeacao = models.CharField(max_length=32, blank=True)
+    request = models.TextField(blank=True)
+
+    class Meta:
+        managed = False
+        db_table = 'execacao'
+
+
+class Fila(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    name = models.CharField(max_length=128)
+    musiconhold = models.CharField(max_length=128, blank=True)
+    announce = models.CharField(max_length=128, blank=True)
+    context = models.CharField(max_length=128, blank=True)
+    timeout = models.IntegerField(blank=True, null=True)
+    timeoutfila = models.IntegerField(blank=True, null=True)
+    autofill = models.IntegerField(blank=True, null=True)
+    autopause = models.IntegerField(blank=True, null=True)
+    monitor_type = models.CharField(db_column='monitor-type', max_length=32, blank=True)  # Field renamed to remove unsuitable characters.
+    monitor_format = models.CharField(db_column='monitor-format', max_length=128, blank=True)  # Field renamed to remove unsuitable characters.
+    announce_frequency = models.IntegerField(db_column='announce-frequency', blank=True, null=True)  # Field renamed to remove unsuitable characters.
+    announce_round_seconds = models.IntegerField(db_column='announce-round-seconds', blank=True, null=True)  # Field renamed to remove unsuitable characters.
+    announce_holdtime = models.CharField(db_column='announce-holdtime', max_length=128, blank=True)  # Field renamed to remove unsuitable characters.
+    periodic_announce = models.CharField(db_column='periodic-announce', max_length=128, blank=True)  # Field renamed to remove unsuitable characters.
+    periodic_announce_frequency = models.IntegerField(db_column='periodic-announce-frequency', blank=True, null=True)  # Field renamed to remove unsuitable characters.
+    ringinuse = models.IntegerField(blank=True, null=True)
+    setinterfacevar = models.IntegerField(blank=True, null=True)
+    retry = models.IntegerField(blank=True, null=True)
+    wrapuptime = models.IntegerField(blank=True, null=True)
+    maxlen = models.IntegerField(blank=True, null=True)
+    servicelevel = models.IntegerField(blank=True, null=True)
+    strategy = models.CharField(max_length=128, blank=True)
+    joinempty = models.CharField(max_length=128, blank=True)
+    leavewhenempty = models.CharField(max_length=128, blank=True)
+    eventmemberstatus = models.IntegerField(blank=True, null=True)
+    eventwhencalled = models.CharField(max_length=128, blank=True)
+    reportholdtime = models.IntegerField(blank=True, null=True)
+    memberdelay = models.IntegerField(blank=True, null=True)
+    weight = models.IntegerField(blank=True, null=True)
+    timeoutrestart = models.IntegerField(blank=True, null=True)
+    announcecli = models.CharField(max_length=128, blank=True)
+    entrada = models.CharField(max_length=16)
+    tipopiloto = models.CharField(max_length=1, blank=True)
+    ramal = models.CharField(max_length=32, blank=True)
+    email = models.CharField(max_length=128, blank=True)
+    emailtipo = models.CharField(max_length=1, blank=True)
+    emailserv = models.CharField(max_length=128, blank=True)
+    emailusu = models.CharField(max_length=32, blank=True)
+    emailsenha = models.CharField(max_length=32, blank=True)
+    maxagspausa = models.IntegerField(blank=True, null=True)
+    urlpopup = models.CharField(max_length=256, blank=True)
+    urlpopupfim = models.CharField(max_length=256, blank=True)
+    indispna = models.IntegerField(blank=True, null=True)
+    callback = models.IntegerField(blank=True, null=True)
+    callbackdisp = models.IntegerField(blank=True, null=True)
+    callbackmin = models.IntegerField(blank=True, null=True)
+    callbackmax = models.IntegerField(blank=True, null=True)
+    callbackstriplocal = models.IntegerField(blank=True, null=True)
+    callbackaddlocal = models.CharField(max_length=2, blank=True)
+    callbackaddddd = models.CharField(max_length=16, blank=True)
+    announcecb = models.CharField(max_length=128, blank=True)
+    horarioini = models.CharField(max_length=8, blank=True)
+    horariofim = models.CharField(max_length=8, blank=True)
+    horarioinisab = models.CharField(max_length=8, blank=True)
+    horariofimsab = models.CharField(max_length=8, blank=True)
+    horarioinidom = models.CharField(max_length=8, blank=True)
+    horariofimdom = models.CharField(max_length=8, blank=True)
+    horarioinifer = models.CharField(max_length=8, blank=True)
+    horariofimfer = models.CharField(max_length=8, blank=True)
+    horarioanuncio = models.CharField(max_length=128, blank=True)
+    horariopiloto = models.CharField(max_length=16, blank=True)
+    timeoutanuncio = models.CharField(max_length=128, blank=True)
+    timeoutpiloto = models.CharField(max_length=16, blank=True)
+    filacheiaanuncio = models.CharField(max_length=128, blank=True)
+    filacheiapiloto = models.CharField(max_length=16, blank=True)
+    filavaziaanuncio = models.CharField(max_length=128, blank=True)
+    filavaziapiloto = models.CharField(max_length=16, blank=True)
+    flags = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'fila'
+
+
+class Filacusto(models.Model):
+    id = models.IntegerField()
+    idfila = models.IntegerField(blank=True, null=True)
+    idcusto = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'filacusto'
+
+
+class Filtrochamada(models.Model):
+    id = models.IntegerField()
+    radiofiltro = models.CharField(max_length=2, blank=True)
+    chamadaccusto = models.CharField(max_length=32, blank=True)
+    idccusto = models.CharField(max_length=10, blank=True)
+    ramaissel = models.CharField(max_length=255, blank=True)
+    chamadames = models.CharField(max_length=32, blank=True)
+    chamadadata1 = models.CharField(max_length=10, blank=True)
+    chamadadata2 = models.CharField(max_length=10, blank=True)
+    radiodirecao = models.CharField(max_length=2, blank=True)
+    chktipolocal = models.CharField(max_length=2, blank=True)
+    chktipoddd = models.CharField(max_length=2, blank=True)
+    chktipocel = models.CharField(max_length=2, blank=True)
+    chktipocelddd = models.CharField(max_length=2, blank=True)
+    chktipoddi = models.CharField(max_length=2, blank=True)
+    chktipo0x00 = models.CharField(max_length=2, blank=True)
+    chamadatempomin = models.CharField(max_length=10, blank=True)
+    chamadatempomax = models.CharField(max_length=10, blank=True)
+    regporpagina = models.CharField(max_length=2, blank=True)
+    pagatual = models.CharField(max_length=3, blank=True)
+    ordem = models.CharField(max_length=10, blank=True)
+
+    class Meta:
+        managed = False
+        db_table = 'filtrochamada'
+
+
+class Flagsparametro(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    nome = models.CharField(max_length=32)
+
+    class Meta:
+        managed = False
+        db_table = 'flagsparametro'
+
+
+class Grupo(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    nome = models.CharField(unique=True, max_length=32)
+
+    class Meta:
+        managed = False
+        db_table = 'grupo'
+
+
+class Grupoanuncio(models.Model):
+    id = models.IntegerField()
+    nome = models.CharField(max_length=32)
+
+    class Meta:
+        managed = False
+        db_table = 'grupoanuncio'
+
+
+class Grupomoh(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    nome = models.CharField(max_length=32)
+
+    class Meta:
+        managed = False
+        db_table = 'grupomoh'
+
+
+class Iax(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    name = models.CharField(max_length=30)
+    username = models.CharField(unique=True, max_length=30, blank=True)
+    type = models.CharField(max_length=6)
+    secret = models.CharField(max_length=50, blank=True)
+    host = models.CharField(max_length=31)
+    context = models.CharField(max_length=100, blank=True)
+    callerid = models.CharField(max_length=100, blank=True)
+    callgroup = models.CharField(max_length=10, blank=True)
+    pickupgroup = models.CharField(max_length=10, blank=True)
+    cancallforward = models.CharField(max_length=3, blank=True)
+    canreinvite = models.CharField(max_length=3, blank=True)
+    md5secret = models.CharField(max_length=32, blank=True)
+    dbsecret = models.CharField(max_length=100, blank=True)
+    notransfer = models.CharField(max_length=10, blank=True)
+    inkeys = models.CharField(max_length=100, blank=True)
+    outkey = models.CharField(max_length=100, blank=True)
+    auth = models.CharField(max_length=100, blank=True)
+    accountcode = models.CharField(max_length=100, blank=True)
+    amaflags = models.CharField(max_length=100, blank=True)
+    defaultip = models.CharField(max_length=15, blank=True)
+    language = models.CharField(max_length=5, blank=True)
+    mailbox = models.CharField(max_length=50, blank=True)
+    deny = models.CharField(max_length=95, blank=True)
+    permit = models.CharField(max_length=95, blank=True)
+    qualify = models.CharField(max_length=4, blank=True)
+    disallow = models.CharField(max_length=100, blank=True)
+    allow = models.CharField(max_length=100, blank=True)
+    ipaddr = models.CharField(max_length=15, blank=True)
+    port = models.IntegerField(blank=True, null=True)
+    regseconds = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'iax'
+
+
+class Localidade(models.Model):
+    sigla_cnl = models.CharField(max_length=4)
+    codigo_cnl = models.IntegerField(primary_key=True)
+    nome = models.CharField(max_length=64)
+    id_municipio = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'localidade'
+
+
+class LocalidadePrefixo(models.Model):
+    codigo_cnl = models.IntegerField()
+    prefixo = models.IntegerField()
+    num_faixa_inicial = models.IntegerField()
+    num_faixa_final = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'localidade_prefixo'
+
+
+class Matriztarifacao(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    cnlorigem = models.CharField(max_length=-1)
+    cnldestino = models.CharField(max_length=-1)
+    degrau = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'matriztarifacao'
+
+
+class Membrosfila(models.Model):
+    uniqueid = models.IntegerField()
+    idagente = models.IntegerField(blank=True, null=True)
+    membername = models.CharField(max_length=80, blank=True)
+    queue_name = models.CharField(max_length=128)
+    interface = models.CharField(max_length=128)
+    paused = models.IntegerField(blank=True, null=True)
+    penalty = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'membrosfila'
+
+
+class Mohgrupomoh(models.Model):
+    id = models.IntegerField()
+    idgrupo = models.IntegerField()
+    nomemoh = models.CharField(max_length=128, blank=True)
+
+    class Meta:
+        managed = False
+        db_table = 'mohgrupomoh'
+
+
+class Municipio(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    nome = models.CharField(max_length=50)
+    uf = models.CharField(max_length=2)
+
+    class Meta:
+        managed = False
+        db_table = 'municipio'
+
+
+class Pa(models.Model):
+    id = models.IntegerField()
+    nome = models.CharField(max_length=80, blank=True)
+    tipo = models.CharField(max_length=3, blank=True)
+    senha = models.CharField(max_length=32, blank=True)
+    descricao = models.CharField(max_length=80, blank=True)
+    modelotel = models.CharField(max_length=80, blank=True)
+    ip = models.CharField(max_length=16, blank=True)
+    nat = models.CharField(max_length=1, blank=True)
+    calllimit = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'pa'
+
+
+class Parametro(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    nome = models.CharField(max_length=40, blank=True)
+    valor = models.CharField(max_length=256, blank=True)
+    nomeparam = models.CharField(max_length=32, blank=True)
+    flags = models.IntegerField()
+    info = models.CharField(max_length=128, blank=True)
+
+    class Meta:
+        managed = False
+        db_table = 'parametro'
+
+
+class Pasfila(models.Model):
+    id = models.IntegerField()
+    chan = models.CharField(max_length=80, blank=True)
+    idpa = models.IntegerField(blank=True, null=True)
+    idfila = models.IntegerField(blank=True, null=True)
+    nomepa = models.CharField(max_length=80, blank=True)
+    nomefila = models.CharField(max_length=128, blank=True)
+    descricao = models.CharField(max_length=80, blank=True)
+
+    class Meta:
+        managed = False
+        db_table = 'pasfila'
+
+
+class Prefixo(models.Model):
+    prefixo = models.CharField(primary_key=True, max_length=7)
+    id_prestadora = models.IntegerField()
+    codigo_area = models.CharField(max_length=5)
+
+    class Meta:
+        managed = False
+        db_table = 'prefixo'
+
+
+class Prestadora(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    nome = models.CharField(max_length=64)
+
+    class Meta:
+        managed = False
+        db_table = 'prestadora'
+
+
+class Rota(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    padrao = models.IntegerField(blank=True, null=True)
+    nome = models.CharField(max_length=32)
+    descricao = models.CharField(max_length=64, blank=True)
+    mascara = models.CharField(max_length=64, blank=True)
+    strip = models.IntegerField(blank=True, null=True)
+    prefixo = models.CharField(max_length=64, blank=True)
+    idtronco = models.IntegerField()
+    tarifa = models.IntegerField(blank=True, null=True)
+    link = models.IntegerField(blank=True, null=True)
+    canalini = models.IntegerField(blank=True, null=True)
+    canalfim = models.IntegerField(blank=True, null=True)
+    idtroncobak = models.IntegerField()
+    tarifabak = models.IntegerField(blank=True, null=True)
+    linkbak = models.IntegerField(blank=True, null=True)
+    canalinibak = models.IntegerField(blank=True, null=True)
+    canalfimbak = models.IntegerField(blank=True, null=True)
+    stripbak = models.IntegerField(blank=True, null=True)
+    prefixobak = models.CharField(max_length=64, blank=True)
+    gravar = models.IntegerField()
+    cadeado = models.IntegerField()
+    cobrar = models.IntegerField(blank=True, null=True)
+    prioridadefilas = models.IntegerField()
+    categoria = models.CharField(max_length=20)
+    ordem = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'rota'
+
+
+class Sip(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    name = models.CharField(unique=True, max_length=80)
+    secret = models.CharField(max_length=80, blank=True)
+    port = models.CharField(max_length=8)
+    type = models.CharField(max_length=16)
+    host = models.CharField(max_length=31)
+    dtmfmode = models.CharField(max_length=7, blank=True)
+    disallow = models.CharField(max_length=100, blank=True)
+    allow = models.CharField(max_length=100, blank=True)
+    nat = models.CharField(max_length=5)
+    accountcode = models.CharField(max_length=20, blank=True)
+    amaflags = models.CharField(max_length=13, blank=True)
+    callgroup = models.CharField(max_length=10, blank=True)
+    callerid = models.CharField(max_length=80, blank=True)
+    cancallforward = models.CharField(max_length=3, blank=True)
+    canreinvite = models.CharField(max_length=3, blank=True)
+    context = models.CharField(max_length=80, blank=True)
+    defaultip = models.CharField(max_length=15, blank=True)
+    fromuser = models.CharField(max_length=80, blank=True)
+    fromdomain = models.CharField(max_length=80, blank=True)
+    insecure = models.CharField(max_length=4, blank=True)
+    language = models.CharField(max_length=2, blank=True)
+    mailbox = models.CharField(max_length=50, blank=True)
+    md5secret = models.CharField(max_length=80, blank=True)
+    deny = models.CharField(max_length=95, blank=True)
+    permit = models.CharField(max_length=95, blank=True)
+    mask = models.CharField(max_length=95, blank=True)
+    musiconhold = models.CharField(max_length=100, blank=True)
+    pickupgroup = models.CharField(max_length=10, blank=True)
+    qualify = models.CharField(max_length=3, blank=True)
+    regexten = models.CharField(max_length=80, blank=True)
+    restrictcid = models.CharField(max_length=3, blank=True)
+    rtptimeout = models.CharField(max_length=3, blank=True)
+    rtpholdtimeout = models.CharField(max_length=3, blank=True)
+    setvar = models.CharField(max_length=100, blank=True)
+    fullcontact = models.CharField(max_length=80)
+    ipaddr = models.CharField(max_length=15)
+    regseconds = models.IntegerField()
+    regserver = models.CharField(max_length=128, blank=True)
+    username = models.CharField(max_length=80)
+    call_limit = models.CharField(db_column='call-limit', max_length=10, blank=True)  # Field renamed to remove unsuitable characters.
+    descricao = models.CharField(max_length=100, blank=True)
+    lastms = models.CharField(max_length=11, blank=True)
+    defaultuser = models.CharField(max_length=10, blank=True)
+    useragent = models.CharField(max_length=128, blank=True)
+
+    class Meta:
+        managed = False
+        db_table = 'sip'
+
+
+class Telefone(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    login = models.CharField(unique=True, max_length=64)
+    senha = models.CharField(max_length=64)
+    descricao = models.CharField(max_length=64)
+    tipochan = models.IntegerField()
+    br = models.IntegerField(blank=True, null=True)
+    pa = models.IntegerField(blank=True, null=True)
+    cadeado = models.IntegerField()
+    cadeadopadrao = models.IntegerField()
+    mac = models.CharField(max_length=18, blank=True)
+
+    class Meta:
+        managed = False
+        db_table = 'telefone'
+
+
+class Tipocanal(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    nome = models.CharField(max_length=16)
+
+    class Meta:
+        managed = False
+        db_table = 'tipocanal'
+
+
+class Tipocategoria(models.Model):
+    id = models.IntegerField()
+    nome = models.CharField(max_length=20)
+    descricao = models.CharField(max_length=32)
+
+    class Meta:
+        managed = False
+        db_table = 'tipocategoria'
+
+
+class Tipodestino(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    descricao = models.CharField(max_length=32)
+
+    class Meta:
+        managed = False
+        db_table = 'tipodestino'
+
+
+class Tipodirecao(models.Model):
+    id = models.IntegerField()
+    descricao = models.CharField(max_length=32)
+
+    class Meta:
+        managed = False
+        db_table = 'tipodirecao'
+
+
+class Tipoentrada(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    nome = models.CharField(max_length=16)
+    sintaxe = models.CharField(max_length=128)
+
+    class Meta:
+        managed = False
+        db_table = 'tipoentrada'
+
+
+class Tipohorario(models.Model):
+    hora = models.IntegerField()
+    diasemana = models.IntegerField()
+    horariofixo = models.IntegerField()
+    horariocelular = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'tipohorario'
+
+
+class Tipostatusagente(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    descricao = models.CharField(max_length=32)
+
+    class Meta:
+        managed = False
+        db_table = 'tipostatusagente'
+
+
+class Tipotronco(models.Model):
+    id = models.IntegerField()
+    descricao = models.CharField(max_length=32)
+
+    class Meta:
+        managed = False
+        db_table = 'tipotronco'
+
+
+class Tipotroncodir(models.Model):
+    id = models.IntegerField()
+    descricao = models.CharField(max_length=32)
+
+    class Meta:
+        managed = False
+        db_table = 'tipotroncodir'
+
+
+class Tronco(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    nome = models.CharField(unique=True, max_length=32)
+    descricao = models.CharField(max_length=64, blank=True)
+    direcao = models.IntegerField()
+    tipo = models.IntegerField()
+    modelo = models.CharField(max_length=64, blank=True)
+    tiporotaentrada = models.IntegerField(blank=True, null=True)
+    contexto = models.CharField(max_length=128, blank=True)
+    ramal = models.CharField(max_length=64, blank=True)
+    detalhes = models.TextField(blank=True)
+    idfilho = models.IntegerField(blank=True, null=True)
+    cid = models.CharField(max_length=10, blank=True)
+
+    class Meta:
+        managed = False
+        db_table = 'tronco'
+
+
+class Troncok1E1(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    k1e1_desc = models.CharField(max_length=128, blank=True)
+    k1e1_tre = models.CharField(max_length=128, blank=True)
+    k1e1_detalhes_tre = models.TextField(blank=True)
+    k1e1_ctx = models.CharField(max_length=128, blank=True)
+    k1e1_ramal = models.CharField(max_length=128, blank=True)
+    k1e1_numplaca = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'troncok1e1'
+
+
+class Troncok2E1(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    k2e1_desc1 = models.CharField(max_length=128, blank=True)
+    k2e1_desc2 = models.CharField(max_length=128, blank=True)
+    k2e1_tre1 = models.CharField(max_length=128, blank=True)
+    k2e1_detalhes_tre1 = models.TextField(blank=True)
+    k2e1_tre2 = models.CharField(max_length=128, blank=True)
+    k2e1_detalhes_tre2 = models.TextField(blank=True)
+    k2e1_ctx1 = models.CharField(max_length=128, blank=True)
+    k2e1_ctx2 = models.CharField(max_length=128, blank=True)
+    k2e1_ramal1 = models.CharField(max_length=128, blank=True)
+    k2e1_ramal2 = models.CharField(max_length=128, blank=True)
+    k2e1_numplaca = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'troncok2e1'
+
+
+class Troncokgsm(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    kgsm_ativo1 = models.IntegerField(blank=True, null=True)
+    kgsm_desc1 = models.CharField(max_length=128, blank=True)
+    kgsm_ramal1 = models.CharField(max_length=8, blank=True)
+    kgsm_sms1 = models.CharField(max_length=8, blank=True)
+    kgsm_detalhes_tre1 = models.TextField(blank=True)
+    kgsm_ativo2 = models.IntegerField(blank=True, null=True)
+    kgsm_desc2 = models.CharField(max_length=128, blank=True)
+    kgsm_ramal2 = models.CharField(max_length=8, blank=True)
+    kgsm_sms2 = models.CharField(max_length=8, blank=True)
+    kgsm_detalhes_tre2 = models.TextField(blank=True)
+    kgsm_ativo3 = models.IntegerField(blank=True, null=True)
+    kgsm_desc3 = models.CharField(max_length=128, blank=True)
+    kgsm_ramal3 = models.CharField(max_length=8, blank=True)
+    kgsm_sms3 = models.CharField(max_length=8, blank=True)
+    kgsm_detalhes_tre3 = models.TextField(blank=True)
+    kgsm_ativo4 = models.IntegerField(blank=True, null=True)
+    kgsm_desc4 = models.CharField(max_length=128, blank=True)
+    kgsm_ramal4 = models.CharField(max_length=8, blank=True)
+    kgsm_sms4 = models.CharField(max_length=8, blank=True)
+    kgsm_detalhes_tre4 = models.TextField(blank=True)
+    kgsm_numplaca = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'troncokgsm'
+
+
+class Troncotdm400(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    tdm400_desc1 = models.CharField(max_length=128, blank=True)
+    tdm400_desc2 = models.CharField(max_length=128, blank=True)
+    tdm400_desc3 = models.CharField(max_length=128, blank=True)
+    tdm400_desc4 = models.CharField(max_length=128, blank=True)
+    tdm400_tre1 = models.IntegerField(blank=True, null=True)
+    tdm400_tre2 = models.IntegerField(blank=True, null=True)
+    tdm400_tre3 = models.IntegerField(blank=True, null=True)
+    tdm400_tre4 = models.IntegerField(blank=True, null=True)
+    tdm400_ctx1 = models.CharField(max_length=128, blank=True)
+    tdm400_ctx2 = models.CharField(max_length=128, blank=True)
+    tdm400_ctx3 = models.CharField(max_length=128, blank=True)
+    tdm400_ctx4 = models.CharField(max_length=128, blank=True)
+    tdm400_ramal1 = models.CharField(max_length=16, blank=True)
+    tdm400_ramal2 = models.CharField(max_length=16, blank=True)
+    tdm400_ramal3 = models.CharField(max_length=16, blank=True)
+    tdm400_ramal4 = models.CharField(max_length=16, blank=True)
+
+    class Meta:
+        managed = False
+        db_table = 'troncotdm400'
+
+
+class Troncote110P(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    te110p_numplaca = models.IntegerField(blank=True, null=True)
+    te110p_tre = models.CharField(max_length=128, blank=True)
+    te110p_ctx = models.CharField(max_length=128, blank=True)
+    te110p_ramal = models.CharField(max_length=128, blank=True)
+
+    class Meta:
+        managed = False
+        db_table = 'troncote110p'
+
+
+class Troncovoip(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    servidor = models.CharField(max_length=128, blank=True)
+    usuario = models.CharField(max_length=64, blank=True)
+    senha = models.CharField(max_length=64, blank=True)
+    porta = models.IntegerField(blank=True, null=True)
+    canaissimult = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'troncovoip'
+
+
+class Ura(models.Model):
+    id = models.IntegerField()
+    nome = models.CharField(max_length=32, blank=True)
+
+    class Meta:
+        managed = False
+        db_table = 'ura'
+
+
+class Usuario(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    idgrupo = models.CharField(max_length=32, blank=True)
+    idccusto = models.IntegerField()
+    login = models.CharField(max_length=32)
+    senha = models.CharField(max_length=32)
+    ramal = models.IntegerField()
+    contexto = models.CharField(max_length=64, blank=True)
+    permissoes = models.TextField()
+    nome = models.CharField(max_length=64, blank=True)
+    nomeguerra = models.CharField(max_length=64, blank=True)
+    email = models.CharField(max_length=128, blank=True)
+    celular = models.IntegerField(blank=True, null=True)
+    funcionalidades = models.IntegerField()
+    datacadastro = models.DateTimeField(blank=True, null=True)
+    modelotel = models.CharField(max_length=32, blank=True)
+    senhatel = models.CharField(max_length=20, blank=True)
+    iptel = models.CharField(max_length=20, blank=True)
+    mactel = models.CharField(max_length=20, blank=True)
+    canaltel = models.IntegerField(blank=True, null=True)
+    numero1 = models.CharField(max_length=20, blank=True)
+    nome1 = models.CharField(max_length=64, blank=True)
+    numero2 = models.CharField(max_length=20, blank=True)
+    nome2 = models.CharField(max_length=64, blank=True)
+    numero3 = models.CharField(max_length=20, blank=True)
+    nome3 = models.CharField(max_length=64, blank=True)
+    numero4 = models.CharField(max_length=20, blank=True)
+    nome4 = models.CharField(max_length=64, blank=True)
+    numero5 = models.CharField(max_length=20, blank=True)
+    nome5 = models.CharField(max_length=64, blank=True)
+    numero6 = models.CharField(max_length=20, blank=True)
+    nome6 = models.CharField(max_length=64, blank=True)
+    numero7 = models.CharField(max_length=20, blank=True)
+    nome7 = models.CharField(max_length=64, blank=True)
+    numero8 = models.CharField(max_length=20, blank=True)
+    nome8 = models.CharField(max_length=64, blank=True)
+    numero9 = models.CharField(max_length=20, blank=True)
+    nome9 = models.CharField(max_length=64, blank=True)
+    campoadd1 = models.CharField(max_length=64, blank=True)
+    campoadd2 = models.CharField(max_length=64, blank=True)
+    campoadd3 = models.CharField(max_length=64, blank=True)
+    campoadd4 = models.CharField(max_length=64, blank=True)
+    ramalocupado = models.CharField(max_length=64, blank=True)
+    ramalna = models.CharField(max_length=64, blank=True)
+    mobilidade = models.CharField(max_length=64, blank=True)
+    status = models.IntegerField(blank=True, null=True)
+    idsfilas = models.CharField(max_length=128, blank=True)
+    telefone = models.CharField(max_length=64, blank=True)
+    secretaria = models.CharField(max_length=128, blank=True)
+    filasecretaria = models.CharField(max_length=128, blank=True)
+    nomesfilas = models.CharField(max_length=512, blank=True)
+    tipocobranca = models.CharField(max_length=1, blank=True)
+    saldo = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'usuario'
+
+
+class Usuarioadicional(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    ramal = models.IntegerField(blank=True, null=True)
+    nome = models.CharField(max_length=64, blank=True)
+    nomeguerra = models.CharField(max_length=64, blank=True)
+    email = models.CharField(max_length=128, blank=True)
+    celular = models.IntegerField(blank=True, null=True)
+    pin = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'usuarioadicional'
+
+
+class Valortarifa(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    nome = models.CharField(max_length=32, blank=True)
+    tipo = models.CharField(max_length=32, blank=True)
+    tempo1 = models.IntegerField(blank=True, null=True)
+    tempo2 = models.IntegerField()
+    vm = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
+    datafinal = models.DateTimeField(blank=True, null=True)
+    taxah2 = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
+    taxavc2 = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
+    taxavc3 = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
+    ignorataxas = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'valortarifa'
+
+
+class Voicemail(models.Model):
+    id = models.IntegerField(primary_key=True)  # AutoField?
+    customer_id = models.IntegerField()
+    context = models.CharField(max_length=50)
+    mailbox = models.IntegerField()
+    password = models.CharField(max_length=10)
+    fullname = models.CharField(max_length=50)
+    email = models.CharField(max_length=50)
+    pager = models.CharField(max_length=50)
+    uniqueid = models.CharField(max_length=11, blank=True)
+
+    class Meta:
+        managed = False
+        db_table = 'voicemail'
+
+
+class VwUsuario(models.Model):
+    id = models.IntegerField(blank=True, null=True)
+    idgrupo = models.CharField(max_length=32, blank=True)
+    idccusto = models.IntegerField(blank=True, null=True)
+    login = models.CharField(max_length=32, blank=True)
+    senha = models.CharField(max_length=32, blank=True)
+    ramal = models.IntegerField(blank=True, null=True)
+    contexto = models.CharField(max_length=64, blank=True)
+    permissoes = models.TextField(blank=True)
+    nome = models.CharField(max_length=64, blank=True)
+    nomeguerra = models.CharField(max_length=64, blank=True)
+    email = models.CharField(max_length=128, blank=True)
+    celular = models.IntegerField(blank=True, null=True)
+    funcionalidades = models.IntegerField(blank=True, null=True)
+    datacadastro = models.DateTimeField(blank=True, null=True)
+    modelotel = models.CharField(max_length=32, blank=True)
+    senhatel = models.CharField(max_length=20, blank=True)
+    iptel = models.CharField(max_length=20, blank=True)
+    mactel = models.CharField(max_length=20, blank=True)
+    canaltel = models.IntegerField(blank=True, null=True)
+    numero1 = models.CharField(max_length=20, blank=True)
+    nome1 = models.CharField(max_length=64, blank=True)
+    numero2 = models.CharField(max_length=20, blank=True)
+    nome2 = models.CharField(max_length=64, blank=True)
+    numero3 = models.CharField(max_length=20, blank=True)
+    nome3 = models.CharField(max_length=64, blank=True)
+    numero4 = models.CharField(max_length=20, blank=True)
+    nome4 = models.CharField(max_length=64, blank=True)
+    numero5 = models.CharField(max_length=20, blank=True)
+    nome5 = models.CharField(max_length=64, blank=True)
+    numero6 = models.CharField(max_length=20, blank=True)
+    nome6 = models.CharField(max_length=64, blank=True)
+    numero7 = models.CharField(max_length=20, blank=True)
+    nome7 = models.CharField(max_length=64, blank=True)
+    numero8 = models.CharField(max_length=20, blank=True)
+    nome8 = models.CharField(max_length=64, blank=True)
+    numero9 = models.CharField(max_length=20, blank=True)
+    nome9 = models.CharField(max_length=64, blank=True)
+    campoadd1 = models.CharField(max_length=64, blank=True)
+    campoadd2 = models.CharField(max_length=64, blank=True)
+    campoadd3 = models.CharField(max_length=64, blank=True)
+    campoadd4 = models.CharField(max_length=64, blank=True)
+    ramalocupado = models.CharField(max_length=64, blank=True)
+    ramalna = models.CharField(max_length=64, blank=True)
+    mobilidade = models.CharField(max_length=64, blank=True)
+    status = models.IntegerField(blank=True, null=True)
+    idsfilas = models.CharField(max_length=128, blank=True)
+    telefone = models.CharField(max_length=64, blank=True)
+    secretaria = models.CharField(max_length=128, blank=True)
+    filasecretaria = models.CharField(max_length=128, blank=True)
+    nomesfilas = models.CharField(max_length=512, blank=True)
+    tipocobranca = models.CharField(max_length=1, blank=True)
+    saldo = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'vw_usuario'
